@@ -1,0 +1,8 @@
+<% @messages.each do |chat| %>
+  <p><%= chat.content %></p>
+<% end %>
+
+<%= form_with(model:[@group, @message], local: true) do |f| %>
+  <%= f.text_area :content %>
+  <% f.submit'送信する' %>
+<% end %>
