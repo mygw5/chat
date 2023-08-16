@@ -3,4 +3,9 @@ class Group < ApplicationRecord
   has_many :messages
   has_many :group_users
   has_many :users, through: :group_users
+
+
+  def is_owned_by?(user)
+    owner.id == user.id
+  end
 end

@@ -4,14 +4,14 @@ class MessagesController < ApplicationController
     group = Group.find(params[:group_id])
     message = group.messages.build(message_params)
     message.user_id = current = current_user.id
-    messsage.save
-    redirect_back(fallback_location: root_path)
+    message.save
+    redirect_to group_path(group)
   end
 
 
   private
 
   def message_params
-    params.require(:chat).permit(:content)
+    params.require(:message).permit(:content)
   end
 end
